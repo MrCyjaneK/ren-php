@@ -1,13 +1,11 @@
 <?php
-
-//scenario_add('entry', ME, "Hello", ["Hi" => "saidhi", "Hello!" => "saidhello"]);
 $data = [];
 
 //$place   - entry, saidhi etc...
 //$who     - Cyjan
 //$text    - <b>Hey</b> What's up?
 //$actions - ["Button Text" => $place, ...]
-function scenario_add($place, $who, $text, $actions) {
+function scenario_add($place, $who, $text, $actions, $background = './static/default.jpg') {
     global $data;
     $place = hash('sha1', $place);
     if (isset($data[$place])) {
@@ -20,7 +18,8 @@ function scenario_add($place, $who, $text, $actions) {
     $data[$place] = [
         "who" => $who,
         "text" => $text,
-        "actions" => $act
+        "actions" => $act,
+        "background" => $background
     ];
 }
 function scenario_get($place) {
@@ -42,6 +41,7 @@ $scene = scenario_get($_SESSION['place']);
 ?>
 
 <p>
+    <img width="100%" src=<?= $scene['background'] ?> />
     <b><?= $scene['who']; ?>:</b> <span><?= $scene['text'] ?></span>
     <ul>
         <?php foreach ($scene['actions'] as $place => $text) { ?>

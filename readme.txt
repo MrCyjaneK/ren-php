@@ -5,8 +5,8 @@
  | #mmmm" #"  #  #"  #         #mmm#" #mmmm# #mmm#" |
  | #   "m #""""  #   #         #      #    # #      |
  | #    " "#mm"  #   #         #      #    # #      |
-  --------| Interactive Novel engine written in php |
-           -----------------------------------------
+  -------------| Visual Novel engine written in php |
+                ------------------------------------
 
 Live demo can be found at oldpc.mrcyjanek.net/in/
 
@@ -21,8 +21,9 @@ easy for me to change character's name in future.
 
 Then I've used following function to add content
 
-scenario_add('entry', YOU, "Hello", ["entry0" => "-->"]);
-             |        |    |        |
+scenario_add('entry', YOU, "Hello", ["entry0" => "-->"], "./static/default.jpg");
+             |        |    |        |                    |
+             |        |    |        |                    \ Link to image.
              |        |    |        \ Array of answers in format of scene -> text
              |        |    \___ Text to display
              |        \___ Name of character, defined earlier
